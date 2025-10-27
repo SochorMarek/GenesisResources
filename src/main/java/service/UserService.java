@@ -19,7 +19,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // ✅ Vytvoření nového uživatele
+    // Vytvoření nového uživatele
     public UserEntity createUser(String name, String surname, String personId) {
         // kontrola duplicity personID
         if (userRepository.existsByPersonId(personId)) {
@@ -33,17 +33,17 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // ✅ Načtení všech uživatelů
+    // Načtení všech uživatelů
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // ✅ Načtení jednoho uživatele podle ID
+    // Načtení jednoho uživatele podle ID
     public Optional<UserEntity> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
-    // ✅ Úprava uživatele
+    // Úprava uživatele
     public UserEntity updateUser(Long id, String name, String surname) {
         UserEntity user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -52,7 +52,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // ✅ Smazání uživatele
+    // Smazání uživatele
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }

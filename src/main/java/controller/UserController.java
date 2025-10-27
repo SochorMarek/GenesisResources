@@ -19,20 +19,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    // ✅ CREATE
     @PostMapping
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
         UserEntity created = userService.createUser(user.getName(), user.getSurname(), user.getPersonId());
         return ResponseEntity.status(201).body(created);
     }
 
-    // ✅ READ - all
     @GetMapping
     public ResponseEntity<List<UserEntity>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    // ✅ READ - one
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getUserById(@PathVariable Long id) {
         return userService.getUserById(id)
@@ -40,7 +37,6 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // ✅ UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<UserEntity> updateUser(
             @PathVariable Long id,
@@ -49,7 +45,6 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(id, user.getName(), user.getSurname()));
     }
 
-    // ✅ DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
