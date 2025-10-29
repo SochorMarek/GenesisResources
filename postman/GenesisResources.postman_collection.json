@@ -1,0 +1,145 @@
+{
+  "info": {
+    "name": "Genesis Resources API",
+    "_postman_id": "d6f44b9c-7d42-42b2-9b31-6bfc7c2e5564",
+    "description": "Postman kolekce pro testování REST API projektu Genesis Resources",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Vytvořit uživatele",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Jack\",\n    \"surname\": \"Survivor\",\n    \"personId\": \"jXa4g3H7oPq2\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Získat všechny uživatele (bez detailu)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Získat všechny uživatele (s detailem)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users?detail=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users"],
+          "query": [
+            {
+              "key": "detail",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Získat jednoho uživatele (bez detailu)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Získat jednoho uživatele (s detailem)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/1?detail=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users", "1"],
+          "query": [
+            {
+              "key": "detail",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upravit uživatele",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 1,\n    \"name\": \"John\",\n    \"surname\": \"Updated\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Smazat uživatele",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "users", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
